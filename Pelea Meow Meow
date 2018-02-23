@@ -1,0 +1,1098 @@
+import processing.sound.*;
+SoundFile file;
+
+
+Personaje Personaje1;
+Personaje Personaje2;
+Personaje Personaje3;
+Personaje Personaje4;
+Personaje Personaje5;
+
+Personaje Contrincante6;
+Personaje Contrincante7;
+Personaje Contrincante8;
+Personaje Contrincante9;
+Personaje Contrincante10;
+
+Personaje jugador1;
+Personaje jugador2;
+
+PFont PressStart2PRegular;
+
+int pantalla;
+boolean jugador1seleccion = false;
+boolean jugador2seleccion = false;
+int turno;
+int hpjugador1;
+int hpjugador2;
+int vida = 100;
+int v = 100;
+int b = 100;
+int ganador;
+
+
+void setup(){
+  size(1000,650);
+  
+  file = new SoundFile(this,"Gatos Kawaii.mp3");
+  file.play();
+  file.amp(5);
+  
+  PressStart2PRegular = createFont("PressStart2PRegular.ttf", 10);
+  
+  Personaje1 = new Personaje("Mazapan",100,10,1);
+  Personaje2 = new Personaje("Frenchito",100,10,2);
+  Personaje3 = new Personaje("Grey",100,10,3);
+  Personaje4 = new Personaje("Thaiga",100,10,4); 
+  Personaje5 = new Personaje("Miki",100,10,5); 
+  
+  Contrincante6 = new Personaje("Mazapan",100,10,1);
+  Contrincante7 = new Personaje("Frenchito",100,10,2);
+  Contrincante8 = new Personaje("Grey",100,10,3);
+  Contrincante9 = new Personaje("Thaiga",100,10,4); 
+  Contrincante10 = new Personaje("Miki",100,10,5); 
+  
+}
+
+
+
+void draw(){
+  
+  println(pantalla);
+  
+  switch(pantalla){
+    case 0:
+      intro();
+    break;
+    case 1:
+      seleccion();
+    break;
+    case 2:
+      juego();
+    break;
+    case 3:
+      fin();
+    break;
+  } 
+
+}
+
+void intro(){
+  background(#B774FF);
+  fill(0);
+  
+  textFont(PressStart2PRegular);
+  
+  fill(#FFBA74);
+  textSize(50); //a partir de este las letras aumentan o disminuyen
+   text("Pelea Meow Meow", 130,300);   
+   fill(#B8FF76);
+   textSize(20);
+   text("Click aqui para empezar", 280,500); 
+if (mousePressed == false){
+  } else
+  {
+    pantalla = 1;
+  }
+}
+
+void seleccion(){
+  background(#D1FF4B);
+
+fill(#FF6F80);
+text("Seleccona tu personaje", 260,100);   
+text("Primer Jugador", 100,180);
+ 
+   text("Presiona Q", 150,260); 
+    text("Presiona W", 150,340);
+     text("Presiona E", 150,425);
+      text("Presiona R", 150,510);
+       text("Presiona T", 150,590);
+       
+text("Segundo Jugador", 600,180); 
+
+   text("Presiona A", 650,260); 
+    text("Presiona S", 650,340);
+     text("Presiona D", 650,425);
+      text("Presiona F", 650,510);
+       text("Presiona G", 650,590);
+ 
+ scale(0.4);
+ //Personajes----------------------------------------------------------------------------------------------------------
+
+ //Personaje 1
+  pushMatrix();
+  translate(1050, 460);
+  
+  //Orejitas gato
+noStroke();
+fill(255);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#D1D1D1);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#D1D1D1);
+ellipse(150,150,150,150);
+fill(255);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(255);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Gorrito chef gato
+fill(#A3E03B);
+triangle(132, 70, 140, 30, 148, 70);
+fill(#FF2EA1);
+ellipse(140,30,15,15);
+
+  //Regalo gato
+fill(#0402B7);
+triangle(250, 139, 250, 125, 265, 139);
+fill(#0402B7);
+triangle(265, 139, 280, 125, 280, 139);
+fill(#FFB362);
+rect(238, 140, 55, 55, 7);
+fill(#0402B7);
+rect(260.5, 139, 10, 56);
+fill(#0402B7);
+rect(238, 162, 56, 10);
+popMatrix();
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ //Personaje 2
+  pushMatrix();
+  translate(1050, 700);
+  //Orejitas gato
+noStroke();
+fill(#FACA77);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#FFBF48);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#FFBF48);
+ellipse(150,150,150,150);
+fill(#FACA77);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#FACA77);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+//Gorrito chef gato
+fill(255);
+ellipse(152,30,20,20);
+fill(255);
+ellipse(130,30,20,20);
+fill(255);
+ellipse(140,20,20,20);
+fill(255);
+rect(130,25,20,35);
+
+//Cuchara gato
+fill(#5C9EB7);
+ellipse(252,110,30,30);
+fill(#5C9EB7);
+rect(246,105,11,70);
+popMatrix();
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  //Personaje 3
+  pushMatrix();
+  translate(1050, 900);
+  //Orejitas gato
+noStroke();
+fill(#D1D1D1);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#C4C4C4);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#C4C4C4);
+ellipse(150,150,150,150);
+fill(#D1D1D1);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#D1D1D1);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Moñito gato
+fill(#AD7BBC);
+triangle(95, 94, 95, 75, 110, 83);
+triangle(110, 83, 125, 73, 125, 93);
+translate(65, 0);
+fill(#AD7BBC);
+triangle(95, 94, 95, 73, 110, 83);
+triangle(110, 83, 125, 75, 125, 93);
+
+  //Corazon gato
+translate(50, 110);
+fill(#FF2E5F);
+ellipse(152,30,20,20);
+fill(#FF2E5F);
+ellipse(130,30,20,20);
+fill(#FF2E5F);
+rect(130,25,20,20);
+fill(#FF2E5F);
+triangle(121, 35, 140, 55, 161, 35);
+popMatrix();
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  //Personaje 4
+  pushMatrix();
+  translate(1050, 1100);
+  //Orejitas gato
+noStroke();
+fill(#505050);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#1C1C1C);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#1C1C1C);
+ellipse(150,150,150,150);
+fill(#505050);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#505050);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Conito gato
+translate(115, 110);
+fill(#AA7605);
+triangle(120, 35, 140, 55, 160, 35);
+fill(#B4FFFB);
+ellipse(130,30,20,20);
+fill(#FFFF74);
+ellipse(150,30,20,20);
+fill(#FF93DB);
+ellipse(140,15,20,20);
+popMatrix();
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ //Personaje 5
+  pushMatrix();
+  translate(1050, 1300);
+  //Orejitas gato
+noStroke();
+fill(#FCCDBF);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#F5AB97);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#F5AB97);
+ellipse(150,150,150,150);
+fill(#FCCDBF);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#FCCDBF);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Nota Musical
+fill(#44A07A);
+ellipse(246,170,18,15);
+ellipse(276,170,18,15);
+rect(250, 140, 30, 5);
+rect(250, 140, 5, 35);
+rect(280, 140, 5, 35);
+popMatrix();
+
+//Fin Personajes----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+       
+       
+  if (jugador1seleccion && jugador2seleccion){
+    pantalla = 2;
+    turno += 1;
+  }
+  if (keyPressed){
+    switch(key){
+      case 'q':
+        jugador1 = Personaje1;
+        hpjugador1=jugador1.vida;
+        jugador1seleccion = true;
+      break;
+       case 'w':
+        jugador1 = Personaje2;
+         hpjugador1=jugador1.vida;
+        jugador1seleccion = true;
+      break;
+       case 'e':
+        jugador1 = Personaje3;
+         hpjugador1=jugador1.vida;
+        jugador1seleccion = true;
+      break;
+       case 'r':
+        jugador1 = Personaje4;
+         hpjugador1=jugador1.vida;
+        jugador1seleccion = true;
+      break;
+       case 't':
+        jugador1 = Personaje5;
+        hpjugador1=jugador1.vida;
+        jugador1seleccion = true;
+      break;
+      
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      
+       case 'a':
+        jugador2 = Contrincante6;
+        hpjugador2=jugador2.vida;
+        jugador2seleccion = true;
+      break;
+       case 's':
+        jugador2 = Contrincante7;
+        hpjugador2=jugador2.vida;
+        jugador2seleccion = true;
+      break;
+       case 'd':
+        jugador2 = Contrincante8;
+        hpjugador2=jugador2.vida;
+        jugador2seleccion = true;
+      break;
+       case 'f':
+        jugador2 = Contrincante9;
+        hpjugador2=jugador2.vida;
+        jugador2seleccion = true;
+      break; 
+       case 'g':
+        jugador2 = Contrincante10;
+        hpjugador2=jugador2.vida;
+        jugador2seleccion = true;
+      break;
+    }
+  }
+  
+  if(jugador1seleccion == true){
+    fill(0);
+    
+        text("Ahora  elije  el  2do  Jugador", 950,360);
+
+  }
+}
+
+
+void juego(){
+  background(#8BFFD0);
+  
+  //Casa 
+  fill(#CE7F00);
+  rect(100,450,800,1000);
+  fill(#7ED300);
+  rect(0,405,1000,80);
+  
+  //Nubes
+  fill(255);
+  ellipse(100, 150, 50, 50);
+  ellipse(130, 150, 50, 50);
+  ellipse(160, 150, 50, 50);
+  rect(95,165,70,10);
+  
+  ellipse(300, 150, 50, 50);
+  ellipse(330, 150, 50, 50);
+  ellipse(360, 150, 50, 50);
+  rect(295,165,70,10);
+  
+  ellipse(800, 150, 50, 50);
+  ellipse(830, 150, 50, 50);
+  ellipse(860, 150, 50, 50);
+  rect(795,165,70,10);
+  
+  ellipse(600, 150, 50, 50);
+  ellipse(630, 150, 50, 50);
+  ellipse(660, 150, 50, 50);
+  rect(595,165,70,10);
+  
+  //Solesito
+  fill(#F0FF50);
+  ellipse(500, 200, 100, 100);
+  
+  fill(0);
+  text("Vida 1er Jugador", 20,65);
+  text("Vida 2do Jugador", 660,65);
+  
+  text("Ataque1", 180,550);
+  text("1er jugador", 130,580);
+  text("Press K", 180,610);
+  
+  text("Ataque2", 650,550);
+  text("2do jugador", 600,580);
+    text("Press L", 650,610);
+  
+  
+  //Barra de vida
+  rect(370, 50, v, 20);
+  rect(510, 50, b, 20);
+  
+  pushMatrix();
+  translate(50,180);
+  jugador1.Dibujar();
+  popMatrix();
+  
+  pushMatrix();
+  translate(600,180);
+  jugador2.Dibujar();
+  popMatrix();
+  
+  
+  
+  switch (turno){
+  case 1:
+  keyPressed();
+    if((key == 'l') || (key == 'L') ){
+      hpjugador2 -= jugador1.ataque; 
+      v = hpjugador1;
+      turno = 2;
+    }
+ break;
+  case 2:
+  keyPressed();
+    if((key =='k') || (key == 'K') ){
+     hpjugador1 -= jugador2.ataque;
+     b = hpjugador2;
+     turno = 1;
+   }
+   break;
+  }
+  if (hpjugador1 <= 0 ){
+    pantalla = 3;
+    ganador = 2;
+  }
+  
+  if ( hpjugador2 <= 0){
+    pantalla = 3;
+    ganador = 1;
+  }
+  
+  if (b <= 0 || v <= 0){
+    pantalla = 3;
+  }
+}
+
+void fin(){
+  background(#FFFF81);
+  
+  if (ganador == 1){
+    fill(#FF62AE);
+    textSize(50);
+   text("Gano el jugador 1", 90,270);
+   textSize(20);
+   text("Presiona 9 para volver a jugar", 230,400);
+  }
+  else{
+   textSize(50);
+   text("Gano el jugador 2", 90,270);
+   textSize(20);
+   text("Presiona 9 para volver a jugar", 230,400);
+  }
+  
+    keyPressed();
+  if (key == '9'){
+    pantalla = 0;
+    jugador1seleccion = false;
+    jugador2seleccion = false;
+    hpjugador1 = 100;
+    hpjugador2 = 100;
+    v = hpjugador1;
+    b = hpjugador2;
+    turno = 0;
+    
+  }
+  
+}
+
+
+
+class Personaje{
+  String nombre;
+  int vida;
+  int ataque;
+  int identificador;
+  
+  Personaje(String nombre_,int vida_, int ataque_, int identificador_){
+    nombre = nombre_;
+    vida = vida_;
+    ataque = ataque_;
+    identificador = identificador_;
+  }
+
+  
+  
+  void Dibujar(){
+  switch(identificador){
+  
+    case 1:
+  //Personaje 1
+  //Orejitas gato
+noStroke();
+fill(255);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#D1D1D1);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#D1D1D1);
+ellipse(150,150,150,150);
+fill(255);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(255);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Gorrito chef gato
+fill(#A3E03B);
+triangle(132, 70, 140, 30, 148, 70);
+fill(#FF2EA1);
+ellipse(140,30,15,15);
+
+  //Regalo gato
+fill(#0402B7);
+triangle(250, 139, 250, 125, 265, 139);
+fill(#0402B7);
+triangle(265, 139, 280, 125, 280, 139);
+fill(#FFB362);
+rect(238, 140, 55, 55, 7);
+fill(#0402B7);
+rect(260.5, 139, 10, 56);
+fill(#0402B7);
+rect(238, 162, 56, 10);
+      break;
+      
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+   
+   case 2:  
+  //Personaje 2
+  //Orejitas gato
+noStroke();
+fill(#FACA77);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#FFBF48);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#FFBF48);
+ellipse(150,150,150,150);
+fill(#FACA77);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#FACA77);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+//Gorrito chef gato
+fill(255);
+ellipse(152,30,20,20);
+fill(255);
+ellipse(130,30,20,20);
+fill(255);
+ellipse(140,20,20,20);
+fill(255);
+rect(130,25,20,35);
+
+//Cuchara gato
+fill(#5C9EB7);
+ellipse(252,110,30,30);
+fill(#5C9EB7);
+rect(246,105,11,70);
+      break;
+      
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+   
+   case 3:  
+  //Personaje 3
+  //Orejitas gato
+noStroke();
+fill(#D1D1D1);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#C4C4C4);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#C4C4C4);
+ellipse(150,150,150,150);
+fill(#D1D1D1);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#D1D1D1);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Moñito gato
+fill(#AD7BBC);
+triangle(95, 94, 95, 75, 110, 83);
+triangle(110, 83, 125, 73, 125, 93);
+translate(65, 0);
+fill(#AD7BBC);
+triangle(95, 94, 95, 73, 110, 83);
+triangle(110, 83, 125, 75, 125, 93);
+
+  //Corazon gato
+translate(50, 110);
+fill(#FF2E5F);
+ellipse(152,30,20,20);
+fill(#FF2E5F);
+ellipse(130,30,20,20);
+fill(#FF2E5F);
+rect(130,25,20,20);
+fill(#FF2E5F);
+triangle(121, 35, 140, 55, 161, 35);
+
+      break;
+      
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+   
+   case 4:
+  //Personaje 4
+  //Orejitas gato
+noStroke();
+fill(#505050);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#1C1C1C);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#1C1C1C);
+ellipse(150,150,150,150);
+fill(#505050);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#505050);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Conito gato
+translate(115, 110);
+fill(#AA7605);
+triangle(120, 35, 140, 55, 160, 35);
+fill(#B4FFFB);
+ellipse(130,30,20,20);
+fill(#FFFF74);
+ellipse(150,30,20,20);
+fill(#FF93DB);
+ellipse(140,15,20,20);
+      break;
+  
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+   
+   case 5:
+    //Personaje 5
+  //Orejitas gato
+noStroke();
+fill(#FCCDBF);
+triangle(100, 92, 115, 55, 132, 85);
+fill(#FFC9F2);
+triangle(110, 89, 115, 55, 132, 77);
+fill(#F5AB97);
+triangle(150, 75, 164, 55, 183, 84);
+fill(#FFC9F2);
+triangle(158, 75, 164, 55, 183, 84);
+
+  //Cuerpo gato
+noStroke();
+fill(#F5AB97);
+ellipse(150,150,150,150);
+fill(#FCCDBF);
+ellipse(145,145,140,140);
+
+  //Mejillas gato
+fill(#EF9BA0);
+ellipse(120,160,30,30);
+fill(#EF9BA0);
+ellipse(200,150,30,30);
+
+  //Ojos gato
+fill(0);
+ellipse(135,125,25,25);
+fill(255);
+ellipse(140,122,15,15);
+fill(0);
+ellipse(180,125,25,25);
+fill(255);
+ellipse(185,122,15,15);
+
+  //Boquita gato
+noStroke();
+fill(0);
+ellipse(162,165,25,28);
+fill(#E8969A);
+ellipse(160,162,20,25);
+fill(255);
+ellipse(170,150,20,20);
+fill(255);
+ellipse(155,150,20,20);
+
+  //Cola gato
+fill(#FCCDBF);
+rect(50, 172, 50, 16);
+rect(50, 142, 16, 30);
+rect(31, 142, 30, 16);
+
+  //Nariz gato
+fill(#A58E9F);
+triangle(158, 150, 162, 155, 167, 150);
+
+  //Nota Musical
+fill(#44A07A);
+ellipse(246,170,18,15);
+ellipse(276,170,18,15);
+rect(250, 140, 30, 5);
+rect(250, 140, 5, 35);
+rect(280, 140, 5, 35);
+      break;
+  //-------------------------------------------------------------------------------------------------------------------------------------------
+  } 
+}
+} 
