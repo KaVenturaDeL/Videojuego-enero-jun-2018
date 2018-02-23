@@ -40,16 +40,16 @@ void setup(){
   
   PressStart2PRegular = createFont("PressStart2PRegular.ttf", 10);
   
-  Personaje1 = new Personaje("Mazapan",100,10,1);
-  Personaje2 = new Personaje("Frenchito",100,10,2);
-  Personaje3 = new Personaje("Grey",100,10,3);
-  Personaje4 = new Personaje("Thaiga",100,10,4); 
+  Personaje1 = new Personaje("Mazapan",100,30,1);
+  Personaje2 = new Personaje("Frenchito",100,25,2);
+  Personaje3 = new Personaje("Grey",100,20,3);
+  Personaje4 = new Personaje("Thaiga",100,15,4); 
   Personaje5 = new Personaje("Miki",100,10,5); 
   
-  Contrincante6 = new Personaje("Mazapan",100,10,1);
-  Contrincante7 = new Personaje("Frenchito",100,10,2);
-  Contrincante8 = new Personaje("Grey",100,10,3);
-  Contrincante9 = new Personaje("Thaiga",100,10,4); 
+  Contrincante6 = new Personaje("Mazapan",100,30,1);
+  Contrincante7 = new Personaje("Frenchito",100,25,2);
+  Contrincante8 = new Personaje("Grey",100,20,3);
+  Contrincante9 = new Personaje("Thaiga",100,15,4); 
   Contrincante10 = new Personaje("Miki",100,10,5); 
   
 }
